@@ -11,7 +11,7 @@ For more information on PID controllers, see: [![PID Controller Tutorial by Bria
 ## Video
 In the video below, the target altitude was set to 700m. With more optimal choices for the constants _k_, _k<sub>i</sub>_, and _k<sub>d</sub>_, the system could stabilize at 700m faster.
 
-[![PID Controller Demo](https://img.youtube.com/vi/UR0hOmjaHp0/0.jpg)](https://www.youtube.com/watch?v=UR0hOmjaHp0)
+[![PID Controller Demo](https://img.youtube.com/vi/JeSpeotUh78/0.jpg)](https://www.youtube.com/watch?v=JeSpeotUh78)
 
 ## Plot
 Below is a plot of the error (meters) vs time (seconds) for the above video. 
