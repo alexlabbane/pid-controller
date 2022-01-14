@@ -15,3 +15,5 @@ In the video below, the target altitude was set to 700m. With more optimal choic
 
 ## Plot
 Below is a plot of the error (meters) vs time (seconds) for the above video. 
+
+[![PID Controller Plot](https://i.imgur.com/UP9a73n.png)]
