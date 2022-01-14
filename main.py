@@ -19,11 +19,11 @@ surface_ref_frame = conn.space_center.ReferenceFrame.create_hybrid(
 
 
 # Constants
-target_altitude = 200
-k = -1 / (target_altitude * 0.4)
-ki = -1 / (target_altitude * 7)
-kd = -1 / (target_altitude * 0.12)
-total_time = 600 # how many seconds to run the controller
+target_altitude = 700
+k = -1 / (target_altitude * 0.35)
+ki = -1 / (target_altitude * 10)
+kd = -1 / (target_altitude * 0.07)
+total_time = 300 # how many seconds to run the controller
 
 plt.axis([0, total_time, -500, 500])
 
@@ -44,7 +44,14 @@ while time() - start_time < total_time:
     measurement = time()
 
     p = altitude - target_altitude
-    i += abs(measurement - prev_measurement) * (p + prev_error) / 2
+
+    integral_error = p + prev_error
+    if integral_error > 100:
+        integral_error = 100
+    if integral_error < -100:
+        integral_error = -100
+
+    i += abs(measurement - prev_measurement) * (integral_error) / 2
     d = (p - prev_error) / abs(measurement - prev_measurement)
     control.throttle = k * p + ki * i + kd * d
     print("p =", p, ", i =", i, "d =", d, "throttle = ", control.throttle)
